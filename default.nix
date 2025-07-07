@@ -1,12 +1,12 @@
 with (builtins.fromJSON (builtins.readFile ./nixpkgs.json));
 
-{ nixpkgs ? builtins.fetchTarball {
-     url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
-    inherit sha256;
-  }
-}:
+{}:
 
 let
+  nixpkgs = builtins.fetchTarball {
+    url = "https://github.com/alexfmpe/nixpkgs/archive/${rev}.tar.gz";
+    inherit sha256;
+  };
   pkgs = import nixpkgs {};
   source = {
     jsaddle = pkgs.fetchFromGitHub {
@@ -25,10 +25,14 @@ let
         self.callCabal2nix "jsaddle" "${source.jsaddle}/jsaddle" {};
     jsaddle-warp =
         dontCheck (self.callCabal2nix "jsaddle-warp" "${source.jsaddle}/jsaddle-warp" {});
+
+     /* cruft */
+     crypton = dontCheck super.crypton;
+
   };
 
   hPkgs =
-    pkgs.haskellPackages.override { inherit overrides; };
+    pkgs.haskell.packages.ghc9122.override { inherit overrides; };
 
 in
 
