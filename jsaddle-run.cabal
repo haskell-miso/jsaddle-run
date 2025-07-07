@@ -1,0 +1,56 @@
+cabal-version:      2.2
+name:               jsaddle-run
+version:            0.1.0.0
+synopsis:           Abstraction over various jsaddle backends
+description:        Transparently execute JSM in either WASM, GHCJS and GHC
+homepage:           https://github.com/haskell-miso/jsaddle-run
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             dmjio
+maintainer:         code@dmj.io
+copyright:          dmjio @ 2025
+category:           Web
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common cpp
+  if impl(ghcjs) || arch(javascript)
+    cpp-options:
+      -DGHCJS_BOTH
+  if impl(ghcjs)
+    cpp-options:
+      -DGHCJS_OLD
+  elif arch(javascript)
+    cpp-options:
+      -DGHCJS_NEW
+  elif arch(wasm32)
+    cpp-options:
+      -DWASM
+  else
+    cpp-options:
+      -DNATIVE
+
+common jsaddle
+  if !(impl(ghcjs) || arch(javascript) || arch(wasm32))
+    build-depends:
+      jsaddle-warp < 0.10
+
+  if !(impl(ghcjs) || arch(javascript))
+    build-depends:
+      file-embed < 0.1
+
+  if arch(wasm32)
+    build-depends:
+      jsaddle-wasm >= 0.1.2 && < 0.2
+
+library
+  imports:
+    cpp, jsaddle
+  exposed-modules:
+    Language.Javascript.JSaddle.Run
+  build-depends:
+    base, jsaddle
+  hs-source-dirs:
+    src
+  default-language:
+    Haskell2010
