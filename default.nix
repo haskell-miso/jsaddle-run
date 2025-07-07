@@ -25,6 +25,10 @@ let
         self.callCabal2nix "jsaddle" "${source.jsaddle}/jsaddle" {};
     jsaddle-warp =
         dontCheck (self.callCabal2nix "jsaddle-warp" "${source.jsaddle}/jsaddle-warp" {});
+
+     /* cruft */
+     crypton = dontCheck super.crypton;
+
   };
 
   hPkgs =
