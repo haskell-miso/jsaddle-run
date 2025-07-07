@@ -1,4 +1,4 @@
-jsaddle-run
+:wheel: jsaddle-run
 ===================
 
 An abstraction over jsaddle for various backends (GHCJS, WASM, GHC)
