@@ -44,7 +44,7 @@ common jsaddle
       jsaddle-wasm >= 0.1.2 && < 0.2
 
 library
-  imports:
+  import:
     cpp, jsaddle
   exposed-modules:
     Language.Javascript.JSaddle.Run
