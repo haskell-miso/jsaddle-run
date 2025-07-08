@@ -1,7 +1,7 @@
 :wheel: jsaddle-run
 ===================
 
-An abstraction over jsaddle for various backends (GHCJS, WASM, GHC)
+An abstraction over [jsaddle](hackage.haskell.org) for various backends (GHCJS, WASM, GHC)
 
 Abstracts over:
   - [jsaddle-wasm](https://github.com/amesgen/jsaddle-wasm)
