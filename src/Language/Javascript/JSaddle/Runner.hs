@@ -3,14 +3,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 -----------------------------------------------------------------------------
 -- |
--- Module      :  Language.Javascript.JSaddle.Run
+-- Module      :  Language.Javascript.JSaddle.Runner
 -- Copyright   :  (C) 2016-2025 David M. Johnson
 -- License     :  BSD3-style (see the file LICENSE)
 -- Maintainer  :  David M. Johnson <code@dmj.io>
 -- Stability   :  experimental
 -- Portability :  non-portable
 ----------------------------------------------------------------------------
-module Language.Javascript.JSaddle.Run
+module Language.Javascript.JSaddle.Runner
   ( -- ** Execution
     run
   ) where
