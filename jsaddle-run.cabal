@@ -47,7 +47,7 @@ library
   import:
     cpp, jsaddle
   exposed-modules:
-    Language.Javascript.JSaddle.Run
+    Language.Javascript.JSaddle.Runner
   build-depends:
     base, jsaddle
   hs-source-dirs:
