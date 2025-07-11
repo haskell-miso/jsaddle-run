@@ -24,7 +24,7 @@ $ nix-build
 ```haskell
 module Main where
 
-import Language.Javascript.JSaddle.Run (run)
+import Language.Javascript.JSaddle.Runner (run)
 
 main :: IO ()
 main = run code
