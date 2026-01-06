@@ -1,6 +1,9 @@
 :wheel: jsaddle-run
 ===================
 
+> [!NOTE]
+> `miso` no longer depends on `jsaddle`.
+
 An abstraction over [jsaddle](hackage.haskell.org) for various backends (GHCJS, WASM, GHC)
 
 Abstracts over:
