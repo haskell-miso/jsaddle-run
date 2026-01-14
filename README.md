@@ -2,7 +2,7 @@
 ===================
 
 > [!NOTE]
-> `miso` no longer depends on `jsaddle`.
+> `miso` no longer depends on `jsaddle`. See [Miso.DSL](https://haddocks.haskell-miso.org/)
 
 An abstraction over [jsaddle](hackage.haskell.org) for various backends (GHCJS, WASM, GHC)
 
